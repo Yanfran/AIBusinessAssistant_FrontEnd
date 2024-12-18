@@ -5,17 +5,21 @@ import CardBox from "../components/shared/CardBox";
 
 const Page = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedOptions, setSelectedOptions] = useState({
-    step1: [] as string[],
-    step2: [] as string[],
-    step3: [] as string[],
+  const [selectedOptions, setSelectedOptions] = useState<{
+    step1: string[];
+    step2: string[];
+    step3: string[];
+  }>({
+    step1: [],
+    step2: [],
+    step3: [],
   });
 
-  const handleOptionClick = (step: string, value: string) => {
+  const handleOptionClick = (step: "step1" | "step2" | "step3", value: string) => {
     setSelectedOptions((prev) => {
       const currentSelections = prev[step];
       const isSelected = currentSelections.includes(value);
-
+  
       return {
         ...prev,
         [step]: isSelected
