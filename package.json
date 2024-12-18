@@ -33,6 +33,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/chance": "1.1.6",
     "@types/node": "20",
     "@types/react": "18",
