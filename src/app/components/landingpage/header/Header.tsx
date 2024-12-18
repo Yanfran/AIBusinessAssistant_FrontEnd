@@ -51,7 +51,7 @@ const Header = () => {
             </Navbar.Link>
             <Navbar.Link
               as={Link}
-              href="/auth/auth1/login"
+              href="/auth/auth2/login"
               className="bg-primary text-white text-sm hover:bg-primary hover:text-white dark:hover:text-white hover:bg-primaryemphasis py-2 px-5 rounded-md"
             >
               Login

@@ -35,7 +35,7 @@ const SidebarContent: MenuItem[] = [
             name: "Sample Page 1",
             icon: "solar:home-angle-outline",
             id: uniqueId(),
-            url: "/",
+            url: "/dashboard",
           },
           {
             name: "Sample Page 2",

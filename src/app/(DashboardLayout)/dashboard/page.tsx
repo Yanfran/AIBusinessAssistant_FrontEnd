@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import CardBox from "../components/shared/CardBox";
+import CardBox from "../../components/shared/CardBox";
 
 const Page = () => {
   const [currentStep, setCurrentStep] = useState(1);
