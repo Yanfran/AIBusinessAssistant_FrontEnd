@@ -12,17 +12,13 @@ const Page = () => {
     step1: string[];
     step2: string[];
     step3: string[];
-    step4: string[];
-    step5: string[];
   }>({
     step1: [],
     step2: [],
     step3: [],
-    step4: [],
-    step5: [],
   });
 
-  const handleOptionClick = (step: "step1" | "step2" | "step3" | "step4" | "step5",  value: string) => {
+  const handleOptionClick = (step: "step1" | "step2" | "step3",  value: string) => {
     setSelectedOptions((prev) => {
       const currentSelections = prev[step];
       const isSelected = currentSelections.includes(value);
@@ -36,7 +32,7 @@ const Page = () => {
     });
   };
 
-  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 5));
+  const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 3));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
   return (
@@ -53,7 +49,7 @@ const Page = () => {
         <div className="relative w-full bg-gray-200 h-2 rounded mb-6">
           <div
             className="absolute top-0 left-0 h-2 bg-teal-400 rounded"
-            style={{ width: `${(currentStep / 5) * 100}%` }}
+            style={{ width: `${(currentStep / 3) * 100}%` }}
           ></div>
         </div>
 
@@ -119,12 +115,6 @@ const Page = () => {
                   ))}
               </div>
 
-            </div>
-          )}
-
-          {currentStep === 2 && (
-            <div className="col-span-2">
-              
               <p className="mb-1 text-black">Selecciona tu sector</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
@@ -149,8 +139,14 @@ const Page = () => {
                       <span className="text-slate-950">{option.name}</span>
                     </div>                    
                   ))}
-              </div>
+              </div>    
 
+            </div>
+          )}
+
+          {currentStep === 2 && (
+            <div className="col-span-2">
+              <h2 className="mb-1 card-title font-black text-black">Personalicemos tu experiencia</h2>
               <p className="mb-1 text-black">¿Qué quieres lograr?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
@@ -174,11 +170,6 @@ const Page = () => {
                   ))}
               </div>
 
-            </div>
-          )}
-
-          {currentStep === 3 && (
-            <div className="col-span-2">
               <p className="mb-1 text-black">¿Qué área necesita más atención?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
@@ -224,12 +215,14 @@ const Page = () => {
                     </div>                    
                   ))}
               </div>
+
             </div>
           )}
 
-
-          {currentStep === 4 && (
+          {currentStep === 3 && (
             <div className="col-span-2">
+              
+              <h2 className="mb-1 card-title font-black text-black">¡Último paso para comenzar!</h2>
               <p className="mb-1 text-black">¿Qué te gustaría automatizar primero?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
@@ -273,12 +266,7 @@ const Page = () => {
                     </div>                    
                   ))}
               </div>
-            </div>
-          )}
 
-
-          {currentStep === 5 && (
-            <div className="col-span-2">
               <p className="mb-1 text-black">¿Qué te gustaría automatizar primero?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
@@ -299,10 +287,11 @@ const Page = () => {
                     </div>                    
                   ))}
               </div>
+              
 
-           
             </div>
           )}
+          
         </div>
 
         {/* Navigation Buttons */}
@@ -317,7 +306,7 @@ const Page = () => {
           <button
             className="btn-primary bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
             onClick={nextStep}
-            disabled={currentStep === 5}
+            disabled={currentStep === 3}
           >
             Siguiente
           </button>
