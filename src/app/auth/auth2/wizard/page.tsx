@@ -86,7 +86,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -108,7 +108,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -140,7 +140,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -163,7 +163,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -191,7 +191,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -214,7 +214,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -242,7 +242,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -263,7 +263,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
@@ -289,7 +289,7 @@ const Page = () => {
                     <div
                       key={option.name}
                       className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl border-grey bg-white ${selectedOptions.step1.includes(option.name)
-                          ? "bg-slate-200 border-slate-200"
+                          ? "bg-zinc-200 border-zinc-200"
                           : "hover:bg-gray-100"
                         }`}
                       onClick={() => handleOptionClick("step1", option.name)}
