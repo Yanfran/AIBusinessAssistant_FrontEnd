@@ -34,6 +34,14 @@ const BoxedLogin = () => {
                       Sign Up Now
                     </Link>
                   </div>
+                  <div className="flex gap-2 text-sm dark:text-white font-medium mt-6 items-center ">
+                    <Link
+                      href={"/auth/auth2/wizard"}
+                      className="text-primary text-sm font-semibold "
+                    >
+                      Wizard
+                    </Link>
+                  </div>
                 </div>
               </div>
               <div className="xl:col-span-6 col-span-12 xl:block hidden">
