@@ -5,6 +5,12 @@ import CardBox from "../../../components/shared/CardBox";
 import Image from "next/image";
 import Logo from "/images/logos/logo.svg";
 import Link from "next/link";
+import { Roboto_Flex, Noto_Sans_Mono } from "next/font/google";
+import router, { useRouter } from "next/router"; 
+
+const robotoFlex = Roboto_Flex({ subsets: ["latin"], weight: ["900", "900"] });
+const notoSansMono = Noto_Sans_Mono({ subsets: ["latin"], weight: ["400", "700"] });
+
 
 const Page = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -35,11 +41,17 @@ const Page = () => {
   const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, 3));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
 
+   // Redirige a /dashboard al llegar al último paso
+  
+   const handleFinish = () => {
+    router.push("/dashboard");
+  };
+
   return (
     // <CardBox className="m-8">
       <div className="container mx-auto px-4 m-8">
         <h2 className="card-title text-5xl font-semibold mb-9">Welcome</h2>
-        
+                
         {/* Logo */}
         <Link href={"#"}>
           <Image style={{ marginLeft: -20 }} className="mr-8 mb-4" src="/images/logos/logoia.svg" alt="logo" width={200} height={200} />
@@ -71,8 +83,8 @@ const Page = () => {
           {currentStep === 1 && (
             <div className="col-span-2">
 
-              <h2 className="mb-1 card-title font-black text-black">Conozcamos tu negocio</h2>
-              <p className="mb-4  text-black">¿A quién vendes principalmente?</p>
+              <h2 className={`${robotoFlex.className} mb-1 card-title`}>Conozcamos tu negocio</h2>
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿A quién vendes principalmente?</p>
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Empresas (B2B)", svg: "/images/iconos/Office-Building--Streamline-Noto-Emoji.svg"  },
@@ -93,7 +105,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">¿Cuántas personas son en tu equipo?</p>   
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Cuántas personas son en tu equipo?</p>   
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "1-10", svg: "/images/iconos/Busts-In-Silhouette--Streamline-Noto-Emoji.svg"  },
@@ -115,7 +127,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">Selecciona tu sector</p>              
+              <p className={`${notoSansMono.className} mb-4  text-black`}>Selecciona tu sector</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Tecnología", svg: "/images/iconos/Laptop--Streamline-Noto-Emoji.svg"  },
@@ -146,8 +158,8 @@ const Page = () => {
 
           {currentStep === 2 && (
             <div className="col-span-2">
-              <h2 className="mb-1 card-title font-black text-black">Personalicemos tu experiencia</h2>
-              <p className="mb-1 text-black">¿Qué quieres lograr?</p>              
+              <h2 className={`${robotoFlex.className} mb-1 card-title`}>Personalicemos tu experiencia</h2>
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Qué quieres lograr?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Aumentar Ventas", svg: "/images/iconos/Chart-Decreasing--Streamline-Noto-Emoji.svg"  },
@@ -170,7 +182,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">¿Qué área necesita más atención?</p>              
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Qué área necesita más atención?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Ventas", svg: "/images/iconos/Briefcase--Streamline-Noto-Emoji.svg"  },
@@ -193,7 +205,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">¿Qué herramientas usas?</p>              
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Qué herramientas usas?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Gmail/Outlook", svg: "/images/iconos/Incoming-Envelope--Streamline-Noto-Emoji.svg"  },
@@ -222,8 +234,8 @@ const Page = () => {
           {currentStep === 3 && (
             <div className="col-span-2">
               
-              <h2 className="mb-1 card-title font-black text-black">¡Último paso para comenzar!</h2>
-              <p className="mb-1 text-black">¿Qué te gustaría automatizar primero?</p>              
+              <h2 className={`${robotoFlex.className} mb-1 card-title`}>¡Último paso para comenzar!</h2>
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Qué te gustaría automatizar primero?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Emails", svg: "/images/iconos/Incoming-Envelope--Streamline-Noto-Emoji.svg"  },
@@ -246,7 +258,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">¿Nivel de automatización deseado?</p>              
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Nivel de automatización deseado?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Básico: Automatizaciones simples", svg: "/images/iconos/Seedling--Streamline-Noto-Emoji.svg"  },
@@ -267,7 +279,7 @@ const Page = () => {
                   ))}
               </div>
 
-              <p className="mb-1 text-black">¿Qué te gustaría automatizar primero?</p>              
+              <p className={`${notoSansMono.className} mb-4  text-black`}>¿Qué te gustaría automatizar primero?</p>              
               <div className="grid grid-cols-4 gap-4 mb-10">
                   {[
                     { name: "Primera vez", svg: "/images/iconos/Hatching-Chick--Streamline-Noto-Emoji.svg"  },
@@ -305,7 +317,13 @@ const Page = () => {
           </button>
           <button
             className="btn-primary bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-            onClick={nextStep}
+            onClick={() => {
+              if (currentStep === 3) {
+                handleFinish(); // Llamar a handleFinish para redirigir a /dashboard
+              } else {
+                nextStep(); // Continuar con el siguiente paso
+              }
+            }}
             disabled={currentStep === 3}
           >
             Siguiente
