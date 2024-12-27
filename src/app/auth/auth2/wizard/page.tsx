@@ -58,9 +58,9 @@ const Page = () => {
     if (step === 1) {
       setTitle('¡Conozcamos tu negocio!');
     } else if (step === 2) {
-      setTitle('¡Explorando más detalles!');
+      setTitle('Personalicemos tu experiencia');
     } else if (step === 3) {
-      setTitle('¡Casi listo para comenzar!');
+      setTitle('¡Último paso para comenzar!');
     }
   };
 
@@ -82,7 +82,7 @@ const Page = () => {
       <h2 className={`${robotoFlex.className} card-title text-4xl font-semibold mb-4 mt-1 flex justify-center`}>
         {title}
       </h2>
-      <div className="container mx-auto px-8 rounded-lg border-black border-4 shadow-xl relative">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 rounded-lg border-black border-4 shadow-xl relative my-4 sm:my-6 md:my-8">
         <Link href={"#"}>
           <Image className="mr-8 mb-4 mt-4" src="/images/logos/logoia.svg" alt="logo" width={150} height={150} />
         </Link>
@@ -96,7 +96,7 @@ const Page = () => {
         {currentStep === 1 && (
           <div>
             <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿A quién vendes principalmente?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Empresas (B2B)", svg: "/images/iconos/Office-Building--Streamline-Noto-Emoji.svg" },
                 { name: "Consumidores (B2C)", svg: "/images/iconos/Busts-In-Silhouette--Streamline-Noto-Emoji.svg" },
@@ -116,7 +116,7 @@ const Page = () => {
             </div>
 
             <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Cuántas personas son en tu equipo?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "1-10", svg: "/images/iconos/Busts-In-Silhouette--Streamline-Noto-Emoji.svg" },
                 { name: "11-50", svg: "/images/iconos/Busts-In-Silhouette--Streamline-Noto-Emoji.svg" },
@@ -137,7 +137,7 @@ const Page = () => {
             </div>
 
             <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>Selecciona tu sector</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Tecnología", svg: "/images/iconos/Laptop--Streamline-Noto-Emoji.svg" },
                 { name: "E-commerce", svg: "/images/iconos/Shopping-Bags--Streamline-Noto-Emoji.svg" },
@@ -165,8 +165,8 @@ const Page = () => {
 
         {currentStep === 2 && (
           <div>
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿A quién vendes principalmente?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Qué quieres lograr?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Aumentar Ventas", svg: "/images/iconos/Chart-Decreasing--Streamline-Noto-Emoji.svg" },
                 { name: "Optimizar Procesos", svg: "/images/iconos/High-Voltage--Streamline-Noto-Emoji.svg" },
@@ -187,8 +187,8 @@ const Page = () => {
               ))}
             </div>
 
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Cuántas personas son en tu equipo?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Qué área necesita más atención?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Ventas", svg: "/images/iconos/Briefcase--Streamline-Noto-Emoji.svg" },
                 { name: "Marketing", svg: "/images/iconos/Megaphone--Streamline-Noto-Emoji.svg" },
@@ -209,8 +209,8 @@ const Page = () => {
               ))}
             </div>
 
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>Selecciona tu sector</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Qué herramientas usas?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Gmail/Outlook", svg: "/images/iconos/Incoming-Envelope--Streamline-Noto-Emoji.svg" },
                 { name: "WhatsApp Business", svg: "/images/iconos/Speech-Balloon--Streamline-Noto-Emoji.svg" },
@@ -235,8 +235,8 @@ const Page = () => {
 
         {currentStep === 3 && (
           <div>
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿A quién vendes principalmente?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Qué te gustaría automatizar primero?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Emails", svg: "/images/iconos/Incoming-Envelope--Streamline-Noto-Emoji.svg" },
                 { name: "Chat", svg: "/images/iconos/Speech-Balloon--Streamline-Noto-Emoji.svg" },
@@ -257,8 +257,8 @@ const Page = () => {
               ))}
             </div>
 
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Cuántas personas son en tu equipo?</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Nivel de automatización deseado?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Básico: Automatizaciones simples", svg: "/images/iconos/Seedling--Streamline-Noto-Emoji.svg" },
                 { name: "Intermedio: Flujos complejos", svg: "/images/iconos/Herb--Streamline-Noto-Emoji.svg" },
@@ -277,8 +277,8 @@ const Page = () => {
               ))}
             </div>
 
-            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>Selecciona tu sector</p>
-            <div className="grid grid-cols-5 gap-5 mb-5">
+            <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Cuál es tu experiencia con IA?</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-5">
               {[
                 { name: "Primera vez", svg: "/images/iconos/Hatching-Chick--Streamline-Noto-Emoji.svg" },
                 { name: "Algo de experiencia", svg: "/images/iconos/Front-Facing-Baby-Chick--Streamline-Noto-Emoji.svg" },
