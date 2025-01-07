@@ -1,0 +1,53 @@
+src/
+├── app/
+│   ├── (DashboardLayout)/
+│   │   ├── dashboard/
+│   │   │   └── page.tsx
+│   │   ├── layout/
+│   │   ├── sample-page/
+│   │   │   └── page.tsx
+│   │   └── layout.tsx
+│   ├── api/
+│   │   ├── chat/
+│   │   │   └── Chatdata.tsx
+│   ├── auth/
+│   │   ├── auth2/
+│   │   │   ├── forgot-password/
+│   │   │   │   └── page.tsx
+│   │   │   ├── login/
+│   │   │   │   └── page.tsx
+│   │   │   ├── register/
+│   │   │   │   └── page.tsx
+│   │   │   ├── wizard/
+│   │   │   │   └── page.tsx
+│   │   ├── authforms/
+│   │   │   └── BoxedRegForms.tsx
+│   │   ├── error/
+│   │   │   └── page.ts
+│   │   └── maintenance/
+│   │       └── page.ts
+│   ├── components/
+│   │   ├── landingpage/
+│   │   ├── shared/
+│   ├── context/
+│   │   ├── ChatContext/
+│   │   │   └── index.ts
+│   │   └── config.ts
+│   │   └── CustomizerContext.tsx
+│   ├── css/
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   ├── page.tsx
+├── utils/
+│   ├── languages/
+│   │   └── ar.json
+│   │   └── ch.json
+│   │   └── en.json
+│   │   └── fr.json
+│   ├── services/
+│   │   └── register.tsx
+│   └── theme/
+│   │   └── custom-theme.tsx
+│   ├── axios.ts
+│   ├── axios-two.ts
+│   ├── i18n.ts

@@ -1,4 +1,7 @@
 //Apps Links Type & Data
+import { logout } from "@/utils/services/authService";
+
+
 interface appsLinkType {
   href: string;
   title: string;
@@ -212,7 +215,8 @@ const Notification: NotificationType[] = [
 //  Profile Data
 interface ProfileType {
   title: string;
-  url: string;
+  url?: string;
+  onClick?: () => Promise<void>;
 }
 
 const profileDD: ProfileType[] = [
@@ -234,7 +238,10 @@ const profileDD: ProfileType[] = [
   },
   {
     title: "Sign Out",
-    url: "/auth/auth2/login",
+    onClick: async () => {
+      await logout();
+    },
+    // url: "/auth/auth2/login",
   },
 ];
 

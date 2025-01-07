@@ -49,7 +49,29 @@ const Profile = () => {
           </div>
         </div>
         <SimpleBar>
-          {profileData.profileDD.map((items, index) => (
+        {profileData.profileDD.map((items, index) => (
+          <div key={index} className="px-6 mb-2">
+            <Dropdown.Item
+              as={items.onClick ? "button" : Link}
+              href={items.url}
+              onClick={items.onClick}
+              className="px-3 py-2 flex justify-between items-center bg-hover group/link w-full rounded-md"
+              key={index}
+            >
+              <div className="flex items-center w-full ">
+                <div className=" flex gap-3 w-full ">
+                  <h5 className="text-15 font-normal group-hover/link:text-primary">
+                    {items.title}
+                  </h5>
+                  {items.url == "/apps/invoice" ? (
+                    <Badge color={"lightprimary"}>4</Badge>
+                  ) : null}
+                </div>
+              </div>
+            </Dropdown.Item>
+          </div>
+        ))}
+          {/* {profileData.profileDD.map((items, index) => (
             <div key={index} className="px-6 mb-2">
               <Dropdown.Item
                 as={Link}
@@ -69,7 +91,7 @@ const Profile = () => {
                 </div>
               </Dropdown.Item>
             </div>
-          ))}
+          ))} */}
         </SimpleBar>
       </Dropdown>
     </div>

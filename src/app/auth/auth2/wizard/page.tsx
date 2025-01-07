@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Roboto_Flex, Noto_Sans_Mono } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { Spinner } from "flowbite-react";
+import { createUserDetails } from "@/utils/services/userRegister";
 
 // Fuentes personalizadas
 const robotoFlex = Roboto_Flex({ subsets: ["latin"], weight: ["900"] });
@@ -23,6 +24,16 @@ const Page = () => {
       step3: [],
     });
 
+  /*const [selectedOptions, setSelectedOptions] = useState<{
+    step1: { label: string, category: string }[],
+    step2: { label: string, category: string }[],
+    step3: { label: string, category: string }[]
+  }>({
+    step1: [],
+    step2: [],
+    step3: [],
+  });*/
+
   const handleOptionClick = (step: 'step1' | 'step2'| 'step3', value: string) => {
     setSelectedOptions((prev) => {
       const currentSelections = prev[step];
@@ -35,6 +46,24 @@ const Page = () => {
       };
     });
   };
+
+  /*const handleOptionClick = (
+    step: 'step1' | 'step2' | 'step3',
+    value: { label: string, category: string }
+  ) => {
+    setSelectedOptions((prev) => {
+      const currentSelections = prev[step];
+      const isSelected = currentSelections.some(
+        (option) => option.label === value.label
+      );
+      return {
+        ...prev,
+        [step]: isSelected
+          ? currentSelections.filter((option) => option.label !== value.label) // Deseleccionar
+          : [...currentSelections, value], // Seleccionar
+      };
+    });
+  };*/
 
 
   const nextStep = () => {
@@ -65,16 +94,23 @@ const Page = () => {
   };
 
   // const handleFinish = () => router.push("/dashboard");
-  const handleFinish = () => {
-    setIsLoading(true); // Muestra el spinner
-    // Simula alguna acción, por ejemplo, una llamada a la API
-    setTimeout(() => {
-      // Después de que se complete la acción, redirige
-      router.push("/dashboard");
-    }, 2000); // Puedes ajustar el tiempo según lo que necesites
-  };
+  const handleFinish = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // try {
+    //   setIsLoading(true); // Muestra el spinner
+    //   console.log("Form data:", selectedOptions);
+    //   const response = await createUserDetails(selectedOptions);
+    //   console.log("Register successful:", response);
+    //   router.push('/auth/auth2/wizard');
+    // } catch (error) {
+    //   console.error('Error al registrar:', error);
+    // }
 
- 
+    setTimeout(() => {    
+      router.push("/dashboard");
+    }, 2000); 
+    
+  }; 
 
   return (
     <>
@@ -177,9 +213,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step2.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step2", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
@@ -199,9 +235,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step2.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step2", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
@@ -221,9 +257,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step2.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step2", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
@@ -247,9 +283,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step3.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step3", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
@@ -267,9 +303,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step3.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step3", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
@@ -287,9 +323,9 @@ const Page = () => {
                 <div
                   key={option.name}
                   className={`flex items-center gap-2 cursor-pointer p-3 border rounded-md mb-2 shadow-xl bg-white ${
-                    selectedOptions.step1.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
+                    selectedOptions.step3.includes(option.name) ? "bg-zinc-200 border-zinc-200" : "hover:bg-gray-100"
                   }`}
-                  onClick={() => handleOptionClick("step1", option.name)}
+                  onClick={() => handleOptionClick("step3", option.name)}
                 >
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>

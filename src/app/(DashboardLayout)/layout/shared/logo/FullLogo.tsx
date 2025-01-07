@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Logo from "/public/images/logos/logo.svg";
+import Logo from "/public/images/logos/logoia.svg";
 import Link from "next/link";
 const FullLogo = () => {
   return (
