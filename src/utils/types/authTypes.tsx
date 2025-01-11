@@ -5,6 +5,8 @@ export interface LoginForm {
 }
 
 export interface LoginResponse {
+    status: boolean;
+    message: string;
     token: string; // Token de autenticación
     user: {
         id: string;

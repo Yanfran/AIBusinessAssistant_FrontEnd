@@ -9,12 +9,12 @@ First, run the development server:
 Para correr el front:
 * Instalar los modules
 * Crear en la raíz del proyecto un archivo .env.local
-* Para levanter debes aplicar: npm run dev
+* Para levantar debes aplicar: npm run dev
 
 Para correr el back:
 * Instalar los modules 
 * Crear en la raíz del proyecto un archivo .env 
-* Para levanter debes aplicar: npm run dev
+* Para levantar debes aplicar: npm run dev
 
 Nota: Debes levantar la base de datos de mongod conectado a esta url: mongodb://localhost:27017/
 
