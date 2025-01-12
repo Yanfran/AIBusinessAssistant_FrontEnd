@@ -7,11 +7,12 @@ interface ProfileCardProps {
   title: string;
   subtitle: string;
   avatar: StaticImageData;
+  onClick?: () => void; 
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ title, subtitle, avatar }) => {
+const ProfileCard: React.FC<ProfileCardProps> = ({ title, subtitle, avatar, onClick }) => {
   return (
-    <CardBox className='p-6'>
+    <CardBox className='p-6' onClick={onClick}>
       <div className="flex items-center">
         {/* <Image src={avatar} alt={title} className="h-10 w-10 rounded-full" /> */}
         <div className="ms-1">

@@ -9,15 +9,16 @@ import React, { useContext } from "react";
 interface MyAppProps {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
-const CardBox: React.FC<MyAppProps> = ({ children, className }) => {
+const CardBox: React.FC<MyAppProps> = ({ children, className, onClick }) => {
   const { activeMode, isCardShadow, isBorderRadius } = useContext(CustomizerContext);
   return (
     <Card className={`card p-[30px]  ${className} ${isCardShadow ? ' shadow-md dark:shadow-none' : 'shadow-none border border-ld'} `}
       style={{
         borderRadius: `${isBorderRadius}px`,
       }}
-    >{children}</Card>
+      onClick={onClick} >{children}</Card>
   );
 
 };
