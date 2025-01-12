@@ -80,7 +80,7 @@ const Page = () => {
   return (
     <>
       <Breadcrumbs />
-      <h5 className="card-title text-xl font-semibold mb-4">Dashboard Overview</h5>
+      <h5 className="card-title text-xl font-bold mb-4">Dashboard Overview</h5>
       <div className="flex flex-wrap gap-2 mt-2 mb-2">
         <Button size="xs" color="dark">New Automation</Button>
         <Button size="xs" color="light">Export Data</Button>

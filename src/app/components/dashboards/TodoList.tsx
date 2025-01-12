@@ -11,6 +11,7 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todos, handleCreateTodo }) => {
   return (
     <CardBox>
+      <h5 className="text-base">Chat Interface</h5>
       <div className="flex flex-col h-96 overflow-y-auto rounded mb-4 p-2" id="chat-box">
         {todos.map((todo, index) => (
           <div key={index} className="p-2 bg-muted dark:bg-darkmuted text-ld rounded-md">

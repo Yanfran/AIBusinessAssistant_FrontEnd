@@ -11,11 +11,11 @@ interface ProfileCardProps {
 
 const ProfileCard: React.FC<ProfileCardProps> = ({ title, subtitle, avatar }) => {
   return (
-    <CardBox>
+    <CardBox className='p-6'>
       <div className="flex items-center">
-        <Image src={avatar} alt={title} className="h-10 w-10 rounded-full" />
-        <div className="ms-3">
-          <h5 className="text-lg">{title}</h5>
+        {/* <Image src={avatar} alt={title} className="h-10 w-10 rounded-full" /> */}
+        <div className="ms-1">
+          <h5 className="text-base">{title}</h5>
           <p className="text-xs text-bodytext flex gap-1 items-center">
             {/* <IconMapPin size={15} /> {subtitle} */}
           </p>
