@@ -6,7 +6,7 @@ import Link from "next/link";
 const FullLogo = () => {
   return (
     <Link href={"/"}>
-      <Image src={Logo} alt="logo" className="block" />
+      <Image src={Logo} alt="logo" height={50} className="block" />
     </Link>
   );
 };

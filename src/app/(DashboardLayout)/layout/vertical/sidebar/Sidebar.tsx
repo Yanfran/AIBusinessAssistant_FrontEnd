@@ -81,6 +81,17 @@ const SidebarLayout = () => {
                     </div>
                   ))}
               </Sidebar.ItemGroup>
+              
+              {/* New Quick Actions Section */}
+              <Sidebar.ItemGroup className="sidebar-nav quick-actions mt-4 fixed-bottom">
+                <h5 className="text-link dark:text-white/70 font-semibold caption font-semibold leading-6 tracking-widest text-xs text-sm pb-2 uppercase">
+                  Quick Actions
+                </h5>
+                {SidebarContent.find(item => item.heading === "Quick Actions")?.children?.map((child) => (
+                  <NavItems key={child.id} item={child} />
+                ))}
+              </Sidebar.ItemGroup>
+
             </Sidebar.Items>
           </SimpleBar>
         </Sidebar>

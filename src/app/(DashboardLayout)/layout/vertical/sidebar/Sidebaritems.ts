@@ -32,14 +32,26 @@ const SidebarContent: MenuItem[] = [
         heading: "Pages",
         children: [
           {
-            name: "Sample Page 1",
-            icon: "solar:home-angle-outline",
+            name: "Dashboard",
+            icon: "bx:home",
             id: uniqueId(),
             url: "/dashboard",
           },
           {
-            name: "Sample Page 2",
-            icon: "solar:settings-minimalistic-line-duotone",
+            name: "Automatizaciones",
+            icon: "f7:bolt",
+            id: uniqueId(),
+            url: "/sample-page",
+          },
+          {
+            name: "Templates",
+            icon: "mage:file-3",
+            id: uniqueId(),
+            url: "/sample-page",
+          },
+          {
+            name: "Analytics",
+            icon: "uim:analytics",
             id: uniqueId(),
             url: "/sample-page",
           }
@@ -140,6 +152,18 @@ const SidebarContent: MenuItem[] = [
           },
         ],
       },
+    ],
+  },
+  {
+    id: 3,
+    heading: "Quick Actions",
+    children: [
+      { id: 'recent', name: 'Recent', icon: "wi:time-5", url: '/recent' },
+      { id: 'favorites', name: 'Favorites', icon: "clarity:favorite-line", url: '/favorites' },
+      { id: 'shortcuts', name: 'Shortcuts', icon: "bx:home", url: '/shortcuts' },
+      { id: 'profile', name: 'Profile', icon: "iconamoon:profile-light", url: '/profile' },
+      { id: 'settings', name: 'Settings', icon: "solar:settings-outline", url: '/settings' },
+      { id: 'help', name: 'Help', icon: "tabler:help", url: '/help' },
     ],
   },
 ];
