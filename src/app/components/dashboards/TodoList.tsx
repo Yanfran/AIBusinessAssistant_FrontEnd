@@ -10,9 +10,11 @@ interface TodoListProps {
 
 const TodoList: React.FC<TodoListProps> = ({ todos, handleCreateTodo }) => {
   return (
-    <CardBox>
+    <div
+      className="fixed bottom-0 left-0 w-full left-[350px] w-[calc(100%-350px)] bg-white dark:bg-gray-800 shadow-md p-4 mr-20"
+    >
       <h5 className="text-base">Chat Interface</h5>
-      <div className="flex flex-col h-96 overflow-y-auto rounded mb-4 p-2" id="chat-box">
+      <div className="flex flex-col h-64 overflow-y-auto rounded mb-4 p-2 bg-gray-100 dark:bg-gray-700">
         {todos.map((todo, index) => (
           <div key={index} className="p-2 bg-muted dark:bg-darkmuted text-ld rounded-md">
             {todo.text}
@@ -30,7 +32,7 @@ const TodoList: React.FC<TodoListProps> = ({ todos, handleCreateTodo }) => {
           Send
         </Button>
       </div>
-    </CardBox>
+    </div>
   );
 };
 

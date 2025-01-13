@@ -114,19 +114,22 @@ const Page = () => {
   return (
     <>
       <Breadcrumbs />
-      <h5 className="card-title text-xl font-bold mb-4">Dashboard Overview</h5>
-      <div className="flex flex-wrap gap-2 mt-2 mb-2">
-        <Button size="xs" color="dark">New Automation</Button>
-        <Button size="xs" color="light">Export Data</Button>
-      </div>
-      <div className="grid grid-cols-12 gap-[20px] mb-3 cursor-pointer">
-        {profilecards.map((item, i) => (
-          <div className="lg:col-span-4 col-span-12" key={i}>
-            <ProfileCard title={item.title} subtitle={item.subtitle} avatar={item.avatar} onClick={() => handleProfileCardClick(item.title)} />
-          </div>
-        ))}
-      </div>
-      <TodoList todos={todos} handleCreateTodo={handleCreateTodo} />
+        <h5 className="card-title text-xl font-bold mb-4">Dashboard Overview</h5>
+        <div className="flex flex-wrap gap-2 mt-2 mb-2">
+          <Button size="xs" color="dark">New Automation</Button>
+          <Button size="xs" color="light">Export Data</Button>
+        </div>
+        <div className="grid grid-cols-12 gap-[20px] mb-3 cursor-pointer">
+          {profilecards.map((item, i) => (
+            <div className="lg:col-span-4 col-span-12" key={i}>
+              <ProfileCard title={item.title} subtitle={item.subtitle} avatar={item.avatar} onClick={() => handleProfileCardClick(item.title)} />
+            </div>
+          ))}
+        </div>
+        {/* <div className="pb-48">
+          <h5>Contenido principal aquí...</h5>
+        </div> */}
+        <TodoList todos={todos} handleCreateTodo={handleCreateTodo} />
     </>
   );
 };
