@@ -96,15 +96,17 @@ const Page = () => {
   // const handleFinish = () => router.push("/dashboard");
   const handleFinish = async (e: React.FormEvent) => {
     e.preventDefault();
-    // try {
-    //   setIsLoading(true); // Muestra el spinner
-    //   console.log("Form data:", selectedOptions);
-    //   const response = await createUserDetails(selectedOptions);
-    //   console.log("Register successful:", response);
-    //   router.push('/auth/auth2/wizard');
-    // } catch (error) {
-    //   console.error('Error al registrar:', error);
-    // }
+    try {
+      setIsLoading(true); // Muestra el spinner
+      console.log("Form data:", selectedOptions);
+      const response = await createUserDetails(selectedOptions);
+      console.log("Register successful:", response);
+      setIsLoading(false);
+      // router.push('/auth/auth2/wizard');
+    } catch (error) {
+      setIsLoading(false);
+      console.error('Error al registrar:', error);
+    }
 
     setTimeout(() => {    
       router.push("/dashboard");
