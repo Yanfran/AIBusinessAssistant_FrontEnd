@@ -47,7 +47,7 @@ const SidebarContent: MenuItem[] = [
             name: "Templates",
             icon: "mage:file-3",
             id: uniqueId(),
-            url: "/sample-page",
+            url: "/first-automation",
           },
           {
             name: "Analytics",
