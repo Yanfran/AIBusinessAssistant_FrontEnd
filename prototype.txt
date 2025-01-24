@@ -3,6 +3,7 @@ src/
 │   ├── (DashboardLayout)/
 │   │   ├── dashboard/
 │   │   │   └── page.tsx
+│   │   │   └── start-settings.tsx
 │   │   ├── layout/
 │   │   ├── sample-page/
 │   │   │   └── page.tsx

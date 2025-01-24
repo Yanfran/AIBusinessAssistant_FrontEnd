@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { getTodos, createTodo, deleteTodo } from "@/utils/services/todoService";
 import { Todo } from "@/utils/services/todoService";
@@ -16,6 +17,7 @@ import CardBox from '../../components/shared/CardBox';
 const Page = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [showWizard, setShowWizard] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -113,6 +115,12 @@ const Page = () => {
     },
   ];
 
+  const handleButtonClick = () => {
+    setShowWizard(true);
+    router.push('/start-settings');
+  };
+
+
   return (
     <>
       {/* <Breadcrumbs />
@@ -160,7 +168,7 @@ const Page = () => {
 
           {/* Call to Action */}
           <button 
-            onClick={() => setShowWizard(true)}
+            onClick={handleButtonClick}
             className="bg-purple-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-purple-700 transition-colors"
           >
             Comenzar Configuración
