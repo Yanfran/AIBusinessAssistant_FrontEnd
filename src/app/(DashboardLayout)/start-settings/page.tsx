@@ -10,7 +10,7 @@ const Page = () => {
   
   const handleButtonClick = () => {
     setShowWizard(true);
-    router.push('/start-settings-welcome');
+    router.push('/start-settings-step-one');    
   };
   return (
     <div className="p-4 bg-gray-50  flex items-center justify-center">

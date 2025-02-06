@@ -11,7 +11,7 @@ const Page = () => {
   
   const handleButtonClick = () => {
     setShowWizard(true);
-    router.push('/welcome-dashboard');
+    router.push('/steps-customer-follow-up-one');
   };
 
   return (
