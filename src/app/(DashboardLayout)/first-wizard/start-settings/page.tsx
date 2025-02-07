@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import CardBox from '../../components/shared/CardBox';
+import CardBox from '../../../components/shared/CardBox';
 import { useRouter } from 'next/navigation';
 
 const Page = () => {
@@ -10,7 +10,7 @@ const Page = () => {
   
   const handleButtonClick = () => {
     setShowWizard(true);
-    router.push('/start-settings-step-one');    
+    router.push('/first-wizard/start-settings-step-one');    
   };
   return (
     <div className="p-4 bg-gray-50  flex items-center justify-center">

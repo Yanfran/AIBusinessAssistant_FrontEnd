@@ -3,7 +3,15 @@ src/
 │   ├── (DashboardLayout)/
 │   │   ├── dashboard/
 │   │   │   └── page.tsx
-│   │   │   └── start-settings.tsx
+│   │   ├── first-automation/
+│   │   │   └── page.tsx
+│   │   ├── first-wizard/
+│   │   │   ├── start-settings/
+│   │   │   │   └── page.tsx
+│   │   │   ├── start-settings/
+│   │   │   │   └── page.tsx
+│   │   │   ├── start-settings-step-four/
+│   │   │   │   └── page.tsx
 │   │   ├── layout/
 │   │   ├── sample-page/
 │   │   │   └── page.tsx

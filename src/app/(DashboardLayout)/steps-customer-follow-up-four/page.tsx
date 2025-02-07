@@ -14,7 +14,7 @@ const Page = () => {
   
   const handleButtonClick = () => {
     setShowWizard(true);
-    router.push('/welcome-dashboard');
+    router.push('/customer-follow-up');
   };
 
   return (
@@ -132,7 +132,7 @@ const Page = () => {
 
           {/* Activación */}
           <div className="flex flex-col items-center">
-            <button className="w-full max-w-md bg-purple-600 text-white py-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
+            <button onClick={handleButtonClick} className="w-full max-w-md bg-purple-600 text-white py-4 rounded-lg font-semibold hover:bg-purple-700 transition-colors">
               Activar Automatización
             </button>
             <p className="text-sm text-gray-500 mt-2">

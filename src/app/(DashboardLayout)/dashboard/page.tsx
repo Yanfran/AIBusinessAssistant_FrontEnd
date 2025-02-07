@@ -117,7 +117,7 @@ const Page = () => {
 
   const handleButtonClick = () => {
     setShowWizard(true);
-    router.push('/start-settings');
+    router.push('/first-wizard/start-settings');
   };
 
 
