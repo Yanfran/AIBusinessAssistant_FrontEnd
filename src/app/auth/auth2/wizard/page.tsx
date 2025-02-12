@@ -1,19 +1,49 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardBox from "../../../components/shared/CardBox";
 import Image from "next/image";
 import Link from "next/link";
 import { Roboto_Flex, Noto_Sans_Mono } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { Spinner } from "flowbite-react";
-import { createUserDetails } from "@/utils/services/userRegister";
+import { createUserOnboarding } from "@/utils/services/onboardingInicial";
+import { onboardingInicial } from "@/utils/services/onboardingInicial";
+import { OnboardingInicial } from "@/utils/types/onboardingInicial";
+import { loginUser } from "@/utils/services/authService";
 
 // Fuentes personalizadas
 const robotoFlex = Roboto_Flex({ subsets: ["latin"], weight: ["900"] });
 const notoSansMono = Noto_Sans_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 
 const Page = () => {
+
+  const [options, setOptions] = useState<OnboardingInicial[]>([]); // Use options here
+  const [error, setError] = useState<string | null>(null);
+  const storedUserData = JSON.parse(localStorage.getItem("userData") || "{}");
+  const storedUserDataLog = JSON.parse(localStorage.getItem("userDataLog") || "{}");
+
+    useEffect(() => {
+        // const fetchTodos = async () => {            
+        //     try {
+        //         const data = await onboardingInicial();
+        //         console.log("La data es:", data);
+        //         setOptions(data); // Set the options state
+        //         setError(null); // Clear any previous errors
+        //     } catch (error) {
+        //         console.error("Error fetching todos:", error);
+        //         setError("Failed to load data."); // Set an error message
+        //     } 
+        // };
+
+        // fetchTodos();
+    }, []);    
+
+    if (error) {
+        return <div>Error: {error}</div>; // Display error message if any
+    }
+  
+  
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false); 
   const [currentStep, setCurrentStep] = useState(1);
@@ -93,25 +123,43 @@ const Page = () => {
     }
   };
 
-  // const handleFinish = () => router.push("/dashboard");
+  console.log("Laaaaaa", storedUserDataLog)
   const handleFinish = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       setIsLoading(true); // Muestra el spinner
-      console.log("Form data:", selectedOptions);
-      const response = await createUserDetails(selectedOptions);
+      const userId = storedUserData.data._id; // Extrae el ID del usuario
+      const formattedData = {
+        userId,
+        step1: selectedOptions.step1 || [],
+        step2: selectedOptions.step2 || [],
+        step3: selectedOptions.step3 || []
+      };
+
+      console.log("Form data to send:", formattedData);
+      
+      const response = await createUserOnboarding(formattedData);
       console.log("Register successful:", response);
+
+       // Intentar iniciar sesión automáticamente después de registrar
+      const loginResponse = await loginUser({
+        email: storedUserData.data.email,
+        password: storedUserDataLog.password
+      });
+
+      if (loginResponse.status === false) {
+        console.error("Error al iniciar sesión después del registro:", loginResponse.message);        
+      } else {
+        console.log("Login successful:", loginResponse);
+        router.push("/dashboard");
+      }
+
       setIsLoading(false);
-      // router.push('/auth/auth2/wizard');
+      router.push("/dashboard")
     } catch (error) {
       setIsLoading(false);
       console.error('Error al registrar:', error);
-    }
-
-    setTimeout(() => {    
-      router.push("/dashboard");
-    }, 2000); 
-    
+    }    
   }; 
 
   return (
@@ -150,7 +198,8 @@ const Page = () => {
                   <img src={option.svg} alt={option.name} className="w-12 h-12 object-contain" />
                   <span className="text-slate-950">{option.name}</span>
                 </div>
-              ))}
+              ))} 
+              
             </div>
 
             <p className={`${notoSansMono.className} mb-1 text-sm text-black`}>¿Cuántas personas son en tu equipo?</p>

@@ -29,6 +29,8 @@ const BoxedAuthRegister = () => {
       console.log('Form data:', formData);
       const response = await createUser(formData);
       console.log("Register successful:", response);
+      localStorage.setItem("userData", JSON.stringify(response));
+      localStorage.setItem("userDataLog", JSON.stringify(formData))
       router.push('/auth/auth2/wizard');
     } catch (error) {
       console.error('Error al registrar:', error);

@@ -13,11 +13,16 @@ import user2 from "/public/images/profile/user-2.jpg";
 import user3 from "/public/images/profile/user-3.jpg";
 import { SalesFunnel, ContentMarketing, CustomerFollowUp } from "@/utils/services/webhook";
 import CardBox from '../../components/shared/CardBox';
+import axios from "axios";
+import { onboardingInicialUser } from "@/utils/services/onboardingInicial";
+import { OnboardingInicial } from "@/utils/types/onboardingInicial";
 
 const Page = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [showWizard, setShowWizard] = useState(false);
   const router = useRouter();
+  const storedUserData = JSON.parse(localStorage.getItem("userData") || "{}");
+  const [onboardingData, setOnboardingData] = useState<OnboardingInicial[]>([]);
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -115,9 +120,20 @@ const Page = () => {
     },
   ];
 
+  const fetchUserOnboarding = async (userId: string) => {
+    try {
+      const data = await onboardingInicialUser(userId); // Llamamos al servicio
+      console.log("Data:", data);
+    } catch (error) {
+      
+    }
+  };
+
   const handleButtonClick = () => {
-    setShowWizard(true);
-    router.push('/first-wizard/start-settings');
+    fetchUserOnboarding(storedUserData.data._id);
+
+    /*setShowWizard(true);
+    router.push('/first-wizard/start-settings');*/
   };
 
 
