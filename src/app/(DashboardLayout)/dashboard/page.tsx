@@ -34,7 +34,7 @@ const Page = () => {
       try {
         const data = await getTodos();
         setTodos(data);
-        console.log("La data es:", data);
+        // console.log("La data es:", data);
       } catch (error) {
         if (error instanceof Error && (error as any).response?.status === 401) {
           console.error("Sesión expirada. Redirigiendo al login.");

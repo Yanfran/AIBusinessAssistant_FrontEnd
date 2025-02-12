@@ -123,7 +123,7 @@ const Page = () => {
     }
   };
 
-  console.log("Laaaaaa", storedUserDataLog)
+
   const handleFinish = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
