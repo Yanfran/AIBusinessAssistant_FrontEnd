@@ -47,27 +47,6 @@ const Page = () => {
     fetchTodos();
   }, []);
 
-  const handleCreateTodo = async () => {
-    try {
-      const newTodo = await createTodo({
-        text: "Nuevo Todo",
-        name: "Ejemplo",
-        descripcion: "Descripción del Todo",
-      });
-      setTodos((prev) => [...prev, newTodo]);
-    } catch (error) {
-      console.error("Error creating todo:", error);
-    }
-  };
-
-  const handleDeleteTodo = async (id: string) => {
-    try {
-      await deleteTodo(id);
-      setTodos((prev) => prev.filter((todo) => todo.id !== id));
-    } catch (error) {
-      console.error("Error deleting todo:", error);
-    }
-  };
 
   const handleProfileCardClick = async (title: string) => {
     try {
@@ -102,28 +81,16 @@ const Page = () => {
     }
   };
 
-  const profilecards = [
-    {
-      title: "Customer Follow-Up",
-      subtitle: "Sint Maarten",
-      avatar: user1,
-    },
-    {
-      title: "Content Marketing",
-      subtitle: "Bulgaria",
-      avatar: user2,
-    },
-    {
-      title: "Sales Funnel",
-      subtitle: "Nepal",
-      avatar: user3,
-    },
-  ];
+
 
   const fetchUserOnboarding = async (userId: string) => {
     try {
       const data = await onboardingInicialUser(userId); // Llamamos al servicio
-      console.log("Data:", data);
+      console.log("Data obtenida:", data);
+
+      // Enviar la data al webhook
+      await axios.post("http://localhost:5678/webhook/089e38ab-4eee-4c34-aa5d-54cf4a8f53b7/chat", data);
+      console.log("Datos enviados al webhook con éxito");
     } catch (error) {
       
     }
@@ -138,26 +105,7 @@ const Page = () => {
 
 
   return (
-    <>
-      {/* <Breadcrumbs />
-        <h5 className="card-title text-xl font-bold mb-4">Dashboard Overview</h5>
-        <div className="flex flex-wrap gap-2 mt-2 mb-2">
-          <Button size="xs" color="dark">New Automation</Button>
-          <Button size="xs" color="light">Export Data</Button>
-        </div>
-        <div className="grid grid-cols-12 gap-[20px] mb-3 cursor-pointer">
-          {profilecards.map((item, i) => (
-            <div className="lg:col-span-4 col-span-12" key={i}>
-              <ProfileCard title={item.title} subtitle={item.subtitle} avatar={item.avatar} onClick={() => handleProfileCardClick(item.title)} />
-            </div>
-          ))}
-        </div>
-        <div className="pb-48">
-          <h5>Contenido principal aquí...</h5>
-        </div>
-        <TodoList todos={todos} handleCreateTodo={handleCreateTodo} /> */}
-
-
+    <>   
     <div className="min-h-screen bg-gray-50 p-8">
       {/* Header */}
       <div className="max-w-4xl mx-auto mb-8">
